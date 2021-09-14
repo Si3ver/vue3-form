@@ -1,4 +1,6 @@
-import { defineComponent, ref, h, reactive } from 'vue'
+import { defineComponent, ref, reactive } from 'vue'
+
+const img = require('./assets/logo.png') // eslint-disable-line
 
 const App = defineComponent({
   setup() {
@@ -12,7 +14,12 @@ const App = defineComponent({
 
     return () => {
       const number = numberRef.value
-      return h('div', { id: 'app' }, [h('p', state.name + number)])
+      return (
+        <div id="app">
+          <img src={img} alt="Vue logo" />
+          <p>{state.name + number}</p>
+        </div>
+      )
     }
   },
 })
